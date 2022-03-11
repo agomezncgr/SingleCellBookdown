@@ -1,4 +1,4 @@
-# Methods
+# How do I design my experiment and prep my samples?
 
 We describe our methods in this chapter.
 
