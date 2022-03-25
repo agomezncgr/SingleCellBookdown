@@ -1,5 +1,17 @@
 # How do I design my experiment and prep my samples?
 
+The most suitable platform depends on the biological question at hand. For example, if one is interested in characterizing the composition of a heterogeneous tissue, then a droplet-based method is more appropriate, as it allows a very large number of cells to be captured in a mostly unbiased manner. On the other hand, if one is interested in characterizing a specific cell-population for which there is a known surface marker, then it is probably best to enrich using FACS and then sequence a smaller number of cells at higher sequencing depth.
+
+Clearly, full-length transcript quantification will be more appropriate if one is interested in studying different isoforms, since tagged protocols are much more limited in this regard. By contrast, UMIs can only be used with tagged protocols and they can improve gene-level quantification.
+If one is interested in rare cell types (for which known markers are not available), then more cells need to be sequenced, which will increase the cost of the experiment. A useful tool to estimate how many cells to sequence has been developed by the Satija Lab: https://satijalab.org/howmanycells/.
+
+Another way to decide on which method to use, is to rely on studies dedicated to comparing different protocols. These studies focus on issues such as sensitivity (how many genes are detected per cell), their accuracy (e.g. compared to bulk RNA-seq) and in their ability to recover all cell types present in a sample (tested on commercially available cell mixtures). For example, a study by Ding et al. 2020 illustrates how low-throughput methods have higher sensitivity compared to high-throughput methods, such as 10x Chromium (Figure below). On the other hand, low-throughput methods did not capture some of the rarer cell types in their samples, leading to an incomplete characterisation of the cell population.
+
+As protocols are developed and improved, and new computational methods for quantifying the technical noise emerge, it is likely that future studies will help us gain further insights regarding the strengths of the different methods. These comparative studies are helpful not only to decide on which protocol to use, but also for developing new methods as the benchmarking makes it possible to determine what strategies are the most useful ones.
+Besides differences in throughput and sensitivity between protocols, cost may also be a deciding factor when planning a scRNA-seq experiment. It is difficult to precisely estimate how much an experiment will cost, although we point to this tool from the Satija Lab as a starting point: https://satijalab.org/costpercell/. For example, some droplet-based protocols such as Drop-seq are cheaper than the commercial alternatives such as 10x Chromium. However, they require the labs to be equipped to prepare the libraries, as well as trained staff and dedicated time (costing salary money).
+Methods such as cell hashing (Stoeckius et al.) may further reduce the costs of sequencing using current platforms. This method in particular consists of attaching oligo-tags to cell membranes, allowing more cells from multiple samples to be loaded per experiment, which can later be demultiplexed during the analysis.
+
+
 We describe our methods in this chapter.
 
 Math can be added in body using usual syntax like this 

@@ -1,6 +1,24 @@
 # What is Single Cell RNA Seq? {#intro}
 
+![PCA illustration from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/GaussianScatterPCA.svg/300px-GaussianScatterPCA.svg.png)
+
+knitr::include_graphics("https://imgs.xkcd.com/comics/correlation.png")
+
+Differences between bulk and single-cell analysis: Single cell analysis emphasizes the differences and variability between individual cells.
+with bulk RNA-seq we can only estimate the average expression level for each gene across a population of cells
+Overview of how the data (counts, metadata) are generated
+https://campus.datacamp.com/courses/rna-seq-with-bioconductor-in-r/exploratory-data-analysis-2?ex=4 
+https://hbctraining.github.io/scRNA-seq_online/lessons/04_SC_quality_control.html
+
+Batch effects
+In molecular biology, a batch effect occurs when non-biological factors in an experiment cause changes in the data produced by the experiment. Such effects can lead to inaccurate conclusions when their causes are correlated with one or more outcomes of interest in an experiment.
+https://www.sciencedirect.com/science/article/abs/pii/S0167779917300367
+Cell Ranger?
+Cell Ranger is a set of analysis pipelines that process Chromium single-cell data to align reads, generate feature-barcode matrices, perform clustering and other secondary analysis, and more. ... cellranger count also processes Feature Barcode data alongside Gene Expression reads.
+
 You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+
 
 Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
 
