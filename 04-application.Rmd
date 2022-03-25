@@ -1,4 +1,7 @@
-# Applications
+# Single Cell Seq Analysis Workflow
+
+![Analysis Workflow](~/SingleCellBookdown/Figures/msb188746-fig-0001-m.jpg){width=65%}
+
 
 Some _significant_ applications are demonstrated in this chapter.
 

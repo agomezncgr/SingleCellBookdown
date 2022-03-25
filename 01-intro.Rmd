@@ -1,24 +1,85 @@
 # What is Single Cell RNA Seq? {#intro}
 
-![PCA illustration from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/GaussianScatterPCA.svg/300px-GaussianScatterPCA.svg.png)
+To understand what single cell RNA Seq is, we can compare and contrast with Bulk RNA Seq. Let's walk through the bulk RNA Seq workflow below:
 
-knitr::include_graphics("https://imgs.xkcd.com/comics/correlation.png")
+![Bulk RNASeq](~/SingleCellBookdown/Figures/BulkRNASeq.png){width=65%}
 
-Differences between bulk and single-cell analysis: Single cell analysis emphasizes the differences and variability between individual cells.
-with bulk RNA-seq we can only estimate the average expression level for each gene across a population of cells
+- An estimation of the average expression level for each gene within a population of cells
+- Population-level resolution
+- DNA from every cell in the sample is mixed together for sequencing
+- Expression levels from every cell type are lumped together
+
+
+
+Now let's walk throug the Single Cell RNA Seq workflow:
+
+![Single Cell RNASeq](~/SingleCellBookdown/Figures/scRNASeq.png){width=%}
+
+![First Isolate Cells](~/SingleCellBookdown/Figures/GenewizWorkflowOutline.png){width=%}
+
+- Emphasizes the differences and variability between individual cells
+- Individual-level resolution
+- DNA from only one cell is sequenced 
+- Expression levels from from individual cell types are separated 
+
+![Cell Isolation Example](~/SingleCellBookdown/Figures/DropSeqFig.png){width=%}
+
+There are many technologies available commercially to perform single cell sorting.
+
+![Cell Sorting Tools](~/SingleCellBookdown/Figures/ToolsScSorting.png){width=%}
+
+A common protocol comes from a company called 10x Genomics. Below is an overview of the cell sorting options available to researchers just to give you a quick impression of the variety of approaches.
+
+![Cell Sorting Tools](~/SingleCellBookdown/Figures/ScSortingOptionsOverview.png){width=%}
+
+Once the single cells are isolated, how do we keep track of them? How do we know which cells belong to which sequences?
+
+![Droplets and UMIs](~/SingleCellBookdown/Figures/DropletBasedFlowChart.png){width=%}
+
+
+![Cell Sorting Tools](~/SingleCellBookdown/Figures/BarcodedBeadsUMI.png){width=%}
+
+What does the UMI do?
+
+UMIs are oligonucleotides consisting of random bases.
+
+- Far more UMIs in the library than target DNA molecules so that ach target DNA molecule gets tagged with unique UMI
+-	Target DNA molecule + UMI gets carried forward to amplification
+-	Reads can later be grouped by UMI to generate a consensus sequence from all of the reads that contain one specific UMI
+
+https://www.youtube.com/watch?v=gMzzXFMyM5g
+
+![UMIs](~/SingleCellBookdown/Figures/UMIs.png){width=%}
+
+What does the Barcode do?
+
+What does the Poly dT do?
+
+
+## Analysis Sequencing Data
+
 Overview of how the data (counts, metadata) are generated
-https://campus.datacamp.com/courses/rna-seq-with-bioconductor-in-r/exploratory-data-analysis-2?ex=4 
-https://hbctraining.github.io/scRNA-seq_online/lessons/04_SC_quality_control.html
+One common tool to analyze differential expression of genes is called DESeq2. It takes the RNA-seq data as an input. What do we need to do DESeq2 analysis? 
+ 
+- Read in the raw counts data 
+- Read in associated metadata we created previously 
+- Make sure the sample names are in the same order in both datasets
+- Create a DESeq2 object to use for differential expression analysis 
 
-Batch effects
+So let's first define a few items:
+
+What is a raw count and how do I get it?
+
+
+What is a Batch Effect?
 In molecular biology, a batch effect occurs when non-biological factors in an experiment cause changes in the data produced by the experiment. Such effects can lead to inaccurate conclusions when their causes are correlated with one or more outcomes of interest in an experiment.
+
 https://www.sciencedirect.com/science/article/abs/pii/S0167779917300367
-Cell Ranger?
+
+What is Cell Ranger?
 Cell Ranger is a set of analysis pipelines that process Chromium single-cell data to align reads, generate feature-barcode matrices, perform clustering and other secondary analysis, and more. ... cellranger count also processes Feature Barcode data alongside Gene Expression reads.
 
 You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
-
-
 
 Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
 
